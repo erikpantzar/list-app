@@ -38,25 +38,35 @@ clientside
 angular / react
 
 ## roadmap
+### 1.0 Final
+1. Realtime sharing of lists
+2. Users can have mutlple lists and share them internally
+3. User management
+	Registration - email - pw - username(optional)
+	UsersLists: [{ title: string, usersAccess: [ id, id,]  }]
+4. access lists offline ( no login, no realtime )
+
+
+
 - 0.0
     - setup stack
-    - define goal
-    - setup roadmap
-    - setup project on github
-    - add readme
-    - buy domain
+    - ~~define goal~~
+    - ~~setup roadmap~~
+    - ~~setup project on github~~
+    - ~~add readme~~
+    - ~~buy domain~~
 
-- 0.1 basics
-    1. add item to list
-    2. save list localstorage
-    3. controllers and views
+- ~~0.1 basics~~
+    1. ~~add item to list~~
+    2. ~~save list localstorage~~
+    3. ~~controllers and views~~
 - 0.2 build & enviroment
-1. build and deploy to enviroment automated
-2. setup remote host ( heroku / other )
-3. find db hosting mongodb
+    1. build and deploy to enviroment automated
+    2. setup remote host ( heroku / other )
+    3. find db hosting mongodb
 - 0.3  DB storage and auth
     1. implement db storage of list
-    2.  expressjs stuff
+    2. expressjs stuff
     3. check on auth
 
 - 0.4 data and auth
@@ -77,14 +87,5 @@ angular / react
 
 - 0.8 Adjust, polish
     1. Design adjustments from 0.7
-- 0.9 XX
 
-
-## 1.0 Final
-1. Realtime sharing of lists
-2. Users can have mutlple lists and share them internally
-3. User management
-	Registration - email - pw - username(optional)
-	UsersLists: [{ title: string, usersAccess: [ id, id,]  }]
-4. access lists offline ( no login, no realtime )
 

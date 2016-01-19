@@ -19,5 +19,5 @@ module.exports = function($locationProvider, $stateProvider, $urlRouterProvider)
             controller: 'listController',
             controllerAs: 'list'
         });
-    
+
 };
