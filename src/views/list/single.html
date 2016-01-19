@@ -1,0 +1,15 @@
+<div class="view">
+    <form ng-submit="list.add(item)"
+          class="item__form">
+        <h2></h2>
+        <input type="text" placeholder="Add an item" ng-model="item"
+            class="item__input">
+    </form>
+
+
+    <ul ng-if="list.items">
+        <li ng-repeat="item in list.items">
+            {{ item }}
+        </li>
+    </ul>
+</div>

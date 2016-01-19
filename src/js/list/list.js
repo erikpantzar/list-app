@@ -2,12 +2,12 @@
 
 
 var listController = function  () {
-
     var vm = this;
+    vm.items = ['item2', 'item3'];
 
-    vm.list = [];
-    vm.addItemToList = function (item) {
-        vm.list.push(item);
+    vm.add = function (item) {
+        console.log(item);
+        vm.items.push(item);
     };
 };
 
