@@ -1,28 +1,32 @@
 'use strict';
+var	angular = require('angular');
 
-(function () {
+(function (angular) {
 
-
-
-	var	angular = require('angular'),
-		uiRouter = require('angular-ui-router'),
-		ngAnimate = require('angular-animate');
+	var	uiRouter = require('angular-ui-router');
+	var ngAnimate = require('angular-animate');
+	var ngStorage = require('ngstorage');
+	var ngTouch = require('angular-touch');
 
 	var ngModules = [
 		uiRouter,
-		ngAnimate
+		ngAnimate,
+		ngTouch
+		// ngStorage
 	];
 
 
 	// var api = require('./common/api');
 	var routes = require('./common/routes');
 
-
 	var listController = require('./list/list');
+	var listService = require('./list/service');
+
 
 	angular.module('listApp', ngModules)
 		.config(routes)
-		.controller('listController', listController);
+		.controller('listController', ['listService', listController])
+		.service('listService', listService);
 
 
-})();
+})(angular);

@@ -1,0 +1,64 @@
+.items-list {
+	display: block;
+	margin: 0;
+	padding: 0;
+
+	&__item {
+		display: block;
+		width: 100%;
+		float: left;
+		border-bottom: 1px solid #eee;
+		background: #fff;
+		box-sizing: border-box;
+		height: 45px;
+		line-height: 45px;
+
+		&__element,
+		&__button {
+			float: left;
+			display: inline-block;
+		}
+		&__element {
+			width: 85%;
+			height: 100%;
+			padding-left: 8px;
+			box-sizing: border-box;
+		}
+		&__button {
+			width: 15%;
+			height: 100%;
+		}
+	}
+}
+
+.items-list__item {
+	&.checked {
+		background: green;
+	}
+}
+
+
+.button {
+	display: inline-block;
+	-webkit-appearance: none;
+	appearance: none;
+	outline: none;
+	box-shadow: none;
+	border: none;
+
+	&__done,
+	&__remove {
+		@extend .button;
+	}
+}
+
+
+.button__done {
+	background: green;
+	color: lightgreen;
+}
+
+.button__remove { 
+	background: orange;
+	color: red;
+}

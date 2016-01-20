@@ -1,15 +1,23 @@
 <div class="view">
-    <form ng-submit="list.add(item)"
+    <form ng-submit="list.add(list.itemInput)"
           class="item__form">
-        <h2></h2>
-        <input type="text" placeholder="Add an item" ng-model="item"
+        <input type="text" placeholder="Add an item" ng-model="list.itemInput"
             class="item__input">
     </form>
 
+    <ul ng-if="list.items" class="items-list">
+        <li ng-repeat="item in list.items track by $index | orderBy:$index"
+            class="items-list__item"
+            ng-init="item.checked = false"
+            ng-click="checked = true" ng-class="{checked: item.checked}">
+            
+            
+            <div class="items-list__item__element">
+                {{ item.name }}
+            </div>
 
-    <ul ng-if="list.items">
-        <li ng-repeat="item in list.items">
-            {{ item }}
+            <button class="items-list__item__button button__remove"
+                ng-click="list.remove(item)">Remove</button>
         </li>
     </ul>
 </div>

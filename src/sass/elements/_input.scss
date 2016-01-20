@@ -1,10 +1,13 @@
 .item__input {
   display: block;
+  width: 100%;
+  box-sizing: border-box;
   line-height: 2em;
   border: none;
-  border-bottom: 2px solid;
+  border-bottom: 1px solid #eee;
   appearance: none;
   font-size: 1.2em;
   margin: 0;
-  padding: 8px 12px;
+  padding: 12px 24px;
+  background: white;
 }

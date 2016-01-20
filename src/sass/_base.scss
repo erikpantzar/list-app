@@ -1,11 +1,16 @@
-
+* {
+	margin: 0;	padding: 0;
+}
 
 body {
-  background: #f00;
+  background: #efefef;
   color: #111;
   font: 100 1em/1.5 sans-serif;
 }
-html { min-height: 300px; }
+
+html { 
+	min-height: 300px; 
+}
 
 h2 { 
 	font-size: 2em;
@@ -13,4 +18,9 @@ h2 {
 
 h3 {
 	font-size: 1.5em;
+}
+
+ul {
+	padding-left: 25px;
+	margin-bottom: 20px;
 }
