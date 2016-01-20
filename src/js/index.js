@@ -5,7 +5,6 @@ var	angular = require('angular');
 
 	var	uiRouter = require('angular-ui-router');
 	var ngAnimate = require('angular-animate');
-	var ngStorage = require('ngstorage');
 	var ngTouch = require('angular-touch');
 
 	var ngModules = [

@@ -2,7 +2,7 @@
 
 module.exports = function($locationProvider, $stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/list');
+    $urlRouterProvider.otherwise('/list/add');
 
     $stateProvider
         .state('login', {
@@ -13,7 +13,7 @@ module.exports = function($locationProvider, $stateProvider, $urlRouterProvider)
             url: "/list",
             templateUrl: "/views/list/list.html"
         })
-        .state('single', {
+        .state('list-add', {
             url: "/list/add",
             templateUrl: "/views/list/single.html",
             controller: 'listController',

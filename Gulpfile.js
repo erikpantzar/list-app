@@ -6,6 +6,7 @@ var gulp = require('./gulp')([
     'clean',
     'sass',
     'server',
+    'copy',
     'htmlmin',
     'watch'
 ]);
