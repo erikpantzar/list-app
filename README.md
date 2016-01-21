@@ -64,13 +64,13 @@ angular / react
     1. ~~build and deploy to enviroment automated~~ (heroku OK?!)
     2. ~~setup remote host ( heroku / other )~~
     3. ~~find db hosting mongodb~~
-- 0.3  DB storage and auth
-    1. implement db storage of list
-    2. expressjs stuff
+- 0.3  ~~DB storage and auth~~
+    1. ~~implement db storage of list~~
+    2. ~~expressjs stuff~~
     3. ~~check on auth~~
 
 - 0.4 data and auth
-    1. api design
+    1. ~~api design~~
     2. auth step 1 implementation => https://gist.github.com/erikpantzar/bf881715946424fabc66
     3. auth ( setup tokens ) => https://gist.github.com/erikpantzar/bf881715946424fabc66
 - 0.5  fun stuff
