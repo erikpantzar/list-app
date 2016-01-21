@@ -11,7 +11,6 @@ var	angular = require('angular');
 		uiRouter,
 		ngAnimate,
 		ngTouch
-		// ngStorage
 	];
 
 

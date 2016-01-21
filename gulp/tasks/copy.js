@@ -8,11 +8,9 @@ var config = require('../config');
 var handleError = require('./handleError');
 
 var copyTask = function() {
-	gulp.src(config.app+'/assets/')
-		.pipe(copy())
-		.pipe(gulp.dest(config.build));
+	return gulp.src(config.app+'/assets/mp3/**')
+		.pipe($.copy(config.dest+'/assets/'), null);
 };
-
 
 gulp.task('clean', copyTask);
 module.exports = copyTask;
