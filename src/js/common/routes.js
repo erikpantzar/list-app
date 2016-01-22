@@ -2,22 +2,34 @@
 
 module.exports = function($locationProvider, $stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/list/add');
+    $urlRouterProvider.otherwise('/app/list');
 
     $stateProvider
-        .state('login', {
+        .state('app', {
+            url: '/app',
+            controller: function() {
+                console.log('app yo');
+            }
+        })
+        .state('app.login', {
             url: "/login",
-            templateUrl: "/views/login/login.html"
+            templateUrl: "/views/login/login.html",
+            controller: 'loginController'
         })
-        .state('list', {
+        .state('app.list', {
             url: "/list",
-            templateUrl: "/views/list/list.html"
+            templateUrl: "/views/list/list.html",
+            controller: 'listController'
         })
-        .state('list-add', {
-            url: "/list/add",
+        .state('app.list.single', {
+            url: "/single",
             templateUrl: "/views/list/single.html",
             controller: 'listController',
             controllerAs: 'list'
+        })
+        .state('app.users', {
+            url: "/users",
+            templateUrl: "/views/users/users.html",
+            controller: 'usersController'
         });
-
 };

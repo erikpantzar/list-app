@@ -13,11 +13,12 @@ var addUser = function(req, res) {
 			return res.send('error yo: ' + err);
 		}
 
-		res.json({ success: "User added!"});
+		res.json({ success: "You fucking did it!!"});
 	});
 };
 
 var getUsers = function(req, res) {
+
 	User.find({}, function(err, users) {
 		if (err) { 
 			return res.send(err);
@@ -31,7 +32,7 @@ var getUsers = function(req, res) {
 		});
 
 		res.json(_users); // end res
-	});  
+	}); 
 }
 
 var getUser = function(req, res) {

@@ -7,6 +7,11 @@ var ListSchema = new mongoose.Schema({
 	accessBy: { type: Array, required: true },
 	// Array of todoItems [{item: "disches", state: -1 }]
 	todoItems: { type: Mixed }
+	// FREEEEEDOOOOOOM.JS //
 });
 
+
+// TODO
+// when user creates list
+// add their id to accessBy  ... HEHE
 module.exports = mongoose.model('List', ListSchema);

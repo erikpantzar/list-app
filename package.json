@@ -4,7 +4,7 @@
   "description": "List app",
   "main": "Gulpfile.js",
   "dependencies": {
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.0"
   },
   "devDependencies": {
     "angular": "^1.4.8",

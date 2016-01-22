@@ -7,10 +7,10 @@
 
         <p>Welcome yo!</p>
 
-        <form action="login(username, password)">
+        <form ng-submit="login(username, password)">
             <input type="text" placeholder="username or email" ng-model="username">
             <input type="password" placeholder="password" ng-model="password">
-            <button type="button">Login</button>
+            <input class="button" type="submit" ng-click="login(username, password)" value="Login"></input>
         </form>
 
     </div>

@@ -1,35 +1,27 @@
 'use strict';
 
+var api = require('../common/api');
 
-var listController = function (listService) {
-    var vm = this;
+module.exports = function ($http) {
+
+	var add = function(item, items, cb) {
+		items.push(item);
+		cb(items);
+	};
+
+	var remove = function (item, items, cb) {
+		items.splice(items.indexOf(item), 1);
+		cb(items);
+	};
+
+	var get = function () {
+		return $http.get(api.lists);
+	};
 
 
-	var items = [{name: "hej"}];
-	vm.items = items;
-
-    function updateList (list) {
-    	vm.items = list;
-    }
-
-    vm.add = function (item) {
-    	var data = {};
-    	data.name = item;
-    	data.date = new Date();
-    	data.checked = false;
-
-    	listService.add(data, vm.items, updateList);
-		vm.itemInput = "";
-    };
-
-    vm.remove = function (item) {
-    	listService.remove(item, vm.items, updateList);
-    };
-
-    vm.checked = function (item, el, i) {
-    	console.log(item, el, i);
-    	item.checked = true;
-    };
+	return {
+		add: add,
+		remove: remove,
+		get: get
+	};
 };
-
-module.exports = listController;

@@ -13,6 +13,8 @@ var auth = function(req, res) {
 		name: req.body.name
 	}, function(err, user) {
 	    if (err) throw err;
+	    console.log(req.body.name);
+	    console.log(user);
 
 	    if (!user) {
 	    	res.json({ success: false, message: 'Authentication failed. User not found.' });
@@ -24,7 +26,7 @@ var auth = function(req, res) {
 				// if user is found and password is right
 				// create a token
 				var token = jwt.sign(user, app.get('superSecret'), {
-					expiresIn: 2840 //
+					expiresIn: 2840
 				});
 
 				// return the information including token as JSON
@@ -43,13 +45,10 @@ router.route('/auth').post(auth);
 app.set('superSecret', configSecret.secret);
 // route middleware to verify a token
 router.use(function(req, res, next) {
-
   // check header or url parameters or post parameters for token
   var token = req.body.token || req.query.token || req.headers['x-access-token'];
-
   // decode token
   if (token) {
-
     // verifies secret and checks exp
     jwt.verify(token, app.get('superSecret'), function(err, decoded) {      
       if (err) {
@@ -65,13 +64,16 @@ router.use(function(req, res, next) {
 
     // if there is no token
     // return an error
-    return res.status(403).send({ 
+    return res.send({ 
         success: false, 
         message: 'No token provided.' 
     });
+    db.close();
     
   }
 });
+
+
 
 
 module.exports = router;
