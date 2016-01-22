@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
-
+var flash = require('connect-flash');
 
 var User = require('../models/user');
 var db = require('../db');
+
 
 
 var addUser = function(req, res) {
@@ -67,6 +68,18 @@ var delUser = function(req, res) {
 		res.json({ message: "Deleted user!" });
 	});
 };
+
+
+
+function isLoggedIn(req, res, next) {
+    // if user is authenticated in the session, carry on 
+    if (req.isAuthenticated())
+        return next();
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+}
+
+
 
 /* GET users listing. */
 router.route('/users')
