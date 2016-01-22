@@ -4,16 +4,6 @@ var router = express.Router();
 var List = require('../models/list');
 var db = require('../db');
 
-
-function isLoggedIn(req, res, next) {
-    // if user is authenticated in the session, carry on 
-    if (req.isAuthenticated())
-        return next();
-    // if they aren't redirect them to the home page
-    res.redirect('/');
-}
-
-
 var _list = {
 	// I/0
 	add: function(req, res) {

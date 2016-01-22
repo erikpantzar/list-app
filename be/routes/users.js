@@ -1,11 +1,9 @@
 var express = require('express');
+var app = express();
 var router = express.Router();
-var flash = require('connect-flash');
 
 var User = require('../models/user');
 var db = require('../db');
-
-
 
 var addUser = function(req, res) {
 	var user = new User(req.body);
@@ -15,7 +13,7 @@ var addUser = function(req, res) {
 			return res.send('error yo: ' + err);
 		}
 
-		res.send({ message: "User added!"});
+		res.json({ success: "User added!"});
 	});
 };
 
@@ -71,16 +69,6 @@ var delUser = function(req, res) {
 
 
 
-function isLoggedIn(req, res, next) {
-    // if user is authenticated in the session, carry on 
-    if (req.isAuthenticated())
-        return next();
-    // if they aren't redirect them to the home page
-    res.redirect('/');
-}
-
-
-
 /* GET users listing. */
 router.route('/users')
 	.get(getUsers)
@@ -90,5 +78,6 @@ router.route('/users/:id')
 	.put(updateUser)
 	.get(getUser)
 	.delete(delUser);
+
 
 module.exports = router;

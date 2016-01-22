@@ -1,13 +1,10 @@
-var express = require('express');
-var session = require('express-session');
-var passport = require('passport');
-var flash = require('connect-flash');
-
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var express = require('express');
 var app = express();
+
 
 //uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -16,19 +13,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// required for passport
-app.use(session({ 
-  secret: 'iamunpiccolino',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false }
-})); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
-
 
 // ROUTES 
+app.use('/api', require('./routes/auth'));
 app.use('/api', require('./routes/lists'));
 app.use('/api', require('./routes/users'));
 
