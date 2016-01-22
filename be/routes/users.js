@@ -1,17 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
+
+
 var User = require('../models/user');
-
-
-// connecting to db
-mongoose.connect('mongodb://localhost/test');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
-  console.log('connected to db');
-});
+var db = require('../db');
 
 
 var addUser = function(req, res) {
@@ -19,7 +11,7 @@ var addUser = function(req, res) {
 
 	user.save(function(err) {
 		if (err) {
-			return res.send(err);
+			return res.send('error yo: ' + err);
 		}
 
 		res.send({ message: "User added!"});
@@ -35,6 +27,16 @@ var getUsers = function(req, res) {
 		res.json(users); // end res
 	});  
 }
+
+var getUser = function(req, res) {
+	User.findOne({ _id: req.params.id }, function(err, user) {
+		if(err) {
+			return res.send(err);
+		}
+
+		res.send(user);
+	});
+};
 
 var updateUser = function(req, res) {
 	User.findOne({ _id: req.params.id }, function(err, user) {
@@ -55,16 +57,6 @@ var updateUser = function(req, res) {
 		});
 	});
 
-};
-
-var getUser = function(req, res) {
-	User.findOne({ _id: req.params.id }, function(err, user) {
-		if(err) {
-			return res.send(err);
-		}
-
-		res.send(user);
-	});
 };
 
 var delUser = function(req, res) {
