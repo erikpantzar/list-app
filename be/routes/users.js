@@ -21,9 +21,16 @@ var getUsers = function(req, res) {
 	User.find({}, function(err, users) {
 		if (err) { 
 			return res.send(err);
-		} 
+		}
 
-		res.json(users); // end res
+		var _users = users.map(function(user) {
+			return {
+				name: user.name,
+				id: user._id
+			};
+		});
+
+		res.json(_users); // end res
 	});  
 }
 
@@ -33,7 +40,13 @@ var getUser = function(req, res) {
 			return res.send(err);
 		}
 
-		res.send(user);
+		var _user = {
+			name: user.name,
+			mail: user.mail,
+			id: user._id
+		};
+
+		res.send(_user);
 	});
 };
 

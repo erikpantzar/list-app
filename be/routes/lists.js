@@ -11,9 +11,9 @@ var _list = {
 		
 		list.save(function(err) {
 			if (err) {
-				return res.send('error yo: ' + err);
+				return res.status(401).send('error yo: ' + err);
 			}	
-			res.send({ message: "List added"});
+			res.status(201).send({ message: "List added"});
 		});
 	},
 	del: function(req, res) {
@@ -48,9 +48,9 @@ var _list = {
 		List.find({}, function(err, list) {
 			if (err) { 
 				return res.send(err);
-			} 
+			}
 
-			res.json(list); // end res
+			res.json(list); // end res			
 		});  
 	},
 	get: function(req, res) {
