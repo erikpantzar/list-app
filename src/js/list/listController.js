@@ -2,6 +2,8 @@
 
 
 var listController = function (List) {
+    "ngInject";
+    
     var vm = this;
 
 
@@ -11,11 +13,10 @@ var listController = function (List) {
     function updateList (list) {
     	vm.items = list;
     }
-
     
     List.get().then(function(response) {
         console.log(response);
-    });
+    }, function(err) { console.log(err); });
 
     vm.add = function (item) {
     	var data = {};

@@ -2,10 +2,12 @@
 
 var gulp = require('gulp');
 var clean = require('gulp-clean');
-
 var config = require('../config');
 
-module.exports = function() {
-    return gulp.src(config.app.build+'/', {read:false})
-        .pipe(clean());
-    };
+var cleanTask = function () {
+	gulp.src(config.app.build, { read:false})
+	    .pipe(clean());
+};
+
+gulp.task('clean', cleanTask);
+module.exports = cleanTask;

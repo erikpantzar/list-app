@@ -76,7 +76,6 @@ var _list = {
 };
 
 
-
 /* GET users listing. */
 router.route('/lists')
 	.get(_list.list)

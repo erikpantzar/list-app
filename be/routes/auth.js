@@ -32,7 +32,6 @@ var auth = function(req, res) {
 				// return the information including token as JSON
 				res.status(201).json({
 					success: true,
-					message: 'Enjoy your token!',
 					token: token
 				});
 			}
@@ -67,9 +66,7 @@ router.use(function(req, res, next) {
     return res.send({ 
         success: false, 
         message: 'No token provided.' 
-    });
-    db.close();
-    
+    });    
   }
 });
 

@@ -1,6 +1,8 @@
 'use strict';
 
 var usersController = function ($scope, Users) {
+	"ngInject";
+	
 	var vm = this;
 	vm.hello = "hello";
 	$scope.hello = 'hello';

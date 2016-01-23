@@ -1,37 +1,36 @@
 'use strict';
-var	angular = require('angular');
 
-(function (angular) {
-
-	var	uiRouter = require('angular-ui-router');
-	var ngAnimate = require('angular-animate');
-	var ngTouch = require('angular-touch');
-
-	var ngModules = [
-		uiRouter,
-		ngAnimate,
-		ngTouch
-	];
-
+(function () {
+	var	angular = require('angular');	
+	require('ngStorage');	
 	var routes = require('./common/routes');
-	var httpHeaders = require('./common/http');
-
-	var listController = require('./list/controller');
-	var List = require('./list/list');
+	var listController = require('./list/listController');
+	var List = require('./list/listService');
 
 	var usersController = require('./users/usersController');
 	var loginController = require('./users/loginController');
-	var Users = require('./users/User');
+	var Users = require('./users/userService');
+
+	// setup like this coz otherwize broekn
+	angular.module('listApp', [
+		require('angular-ui-router'),
+		'ngStorage'	
+	]).config(routes);
+		
+		/*.run(function($httpProvider) {
+			$httpProvider.defaults.header.common['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+		}); */
+
+	// controllers and services
+	angular.module('listApp')
+		.controller('listController', listController)
+		.service('List', List)
+		.controller('usersController', usersController)
+		.controller('loginController', loginController)
+		.service('Users', Users);
+})();
 
 
-	angular.module('listApp', ngModules)
-		.config(routes)
-		.run(httpHeaders)
-		.controller('listController', ['List', listController])
-		.service('List', ['$http', List])
-		.controller('usersController', ['$scope', 'Users', usersController])
-		.controller('loginController', ['$scope', '$state', 'Users', loginController])
-		.service('Users', ['$http', Users]);
-
-
-})(angular);
+module.exports = function () {
+	return 'guappo';
+};

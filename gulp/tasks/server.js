@@ -18,7 +18,8 @@ var browserSyncTask = function() {
 	gulp.watch(config.style.src+'/*.scss', ['sass']);
 	gulp.watch(config.app.src+'/**.html', ['htmlmin']);
 	gulp.watch(config.script.src+'/**/**.js', ['browserify']);
-	gulp.watch([config.app.src+'/*.html', config.script.dest+'/*.js']).on('change', browserSync.reload);
+	gulp.watch([config.app.src+'/*.html', config.script.dest+'/*.js'])
+		.on('change', browserSync.reload);
 };
 
 

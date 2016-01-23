@@ -1,15 +1,13 @@
 'use strict';
 
 module.exports = function($locationProvider, $stateProvider, $urlRouterProvider) {
+    "ngInject";
 
     $urlRouterProvider.otherwise('/app/list');
 
     $stateProvider
         .state('app', {
-            url: '/app',
-            controller: function() {
-                console.log('app yo');
-            }
+            url: '/app'
         })
         .state('app.login', {
             url: "/login",

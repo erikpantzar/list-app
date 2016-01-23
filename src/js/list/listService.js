@@ -3,6 +3,7 @@
 var api = require('../common/api');
 
 module.exports = function ($http) {
+	"ngInject";
 
 	var add = function(item, items, cb) {
 		items.push(item);
