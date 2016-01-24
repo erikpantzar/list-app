@@ -15,14 +15,18 @@ module.exports = function ($http) {
 		cb(items);
 	};
 
-	var get = function () {
+	var list = function () {
 		return $http.get(api.lists);
 	};
 
+	var get = function(id) {
+		return $http.get(api.lists, {id: id});
+	};
 
 	return {
 		add: add,
 		remove: remove,
-		get: get
+		get: get,
+		list: list
 	};
 };

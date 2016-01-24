@@ -1,36 +1,32 @@
 'use strict';
 
-(function () {
-	var	angular = require('angular');	
-	require('ngStorage');	
-	var routes = require('./common/routes');
-	var listController = require('./list/listController');
-	var List = require('./list/listService');
-
-	var usersController = require('./users/usersController');
-	var loginController = require('./users/loginController');
-	var Users = require('./users/userService');
-
-	// setup like this coz otherwize broekn
-	angular.module('listApp', [
-		require('angular-ui-router'),
-		'ngStorage'	
-	]).config(routes);
-		
-		/*.run(function($httpProvider) {
-			$httpProvider.defaults.header.common['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-		}); */
-
-	// controllers and services
-	angular.module('listApp')
-		.controller('listController', listController)
-		.service('List', List)
-		.controller('usersController', usersController)
-		.controller('loginController', loginController)
-		.service('Users', Users);
-})();
+var	angular = require('angular');	
+require('ngStorage');	
+var loginController = require('./users/loginController');
+var usersController = require('./users/usersController');
+var userService = require('./users/userService');
+var listController = require('./list/listController');
+var List = require('./list/listService');
+var routes = require('./common/routes');
+var authInterceptor = require('./common/intercept');
 
 
-module.exports = function () {
-	return 'guappo';
-};
+// setup like this coz otherwize broekn
+angular.module('listApp', [
+	require('angular-ui-router'),
+	'ngStorage'	
+])
+.config(routes)
+.factory('authInterceptor', authInterceptor)
+.config(function ($httpProvider) {
+	$httpProvider.defaults.headers.common['Content-Type'] = "application/json";
+	$httpProvider.interceptors.push('authInterceptor');
+});
+	
+// controllers and services
+angular.module('listApp')
+	.service('List', List)
+	.service('userService', userService)
+	.controller('listController', listController)
+	.controller('usersController', usersController)
+	.controller('loginController', loginController);

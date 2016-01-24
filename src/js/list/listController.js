@@ -14,7 +14,7 @@ var listController = function (List) {
     	vm.items = list;
     }
     
-    List.get().then(function(response) {
+    List.list().then(function(response) {
         console.log(response);
     }, function(err) { console.log(err); });
 

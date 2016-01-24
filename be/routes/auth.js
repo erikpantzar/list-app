@@ -54,6 +54,7 @@ router.use(function(req, res, next) {
         return res.status(401).json({ success: false, message: 'Failed to authenticate token.' });    
       } else {
         // if everything is good, save to request for use in other routes
+        console.log("VERIFIED");
         req.decoded = decoded;    
         next();
       }

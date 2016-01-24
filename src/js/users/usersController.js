@@ -1,6 +1,6 @@
 'use strict';
 
-var usersController = function ($scope, Users) {
+var usersController = function ($scope, userService) {
 	"ngInject";
 	
 	var vm = this;
@@ -10,7 +10,7 @@ var usersController = function ($scope, Users) {
 	console.log(vm);
 	console.log($scope);
 
-	Users.list().then(function(response) {
+	userService.list().then(function(response) {
 		vm.users = response.data;
 	}, function(response) {
 		console.log(response);
