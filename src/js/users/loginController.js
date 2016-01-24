@@ -1,16 +1,19 @@
 'use strict';
 
-var loginController = ['$scope', '$localStorage', 'userService', function ($scope, $localStorage, userService) {
+var loginController = function ($scope, $localStorage, $state, userService) {
+	"nginject";
 
 	$scope.login = function (username, password) {
 		userService.auth(username,password).then(function(response) {
 			var token = response.data.token;
-			console.log(token);
 			$localStorage.token = token;
+
+			$state.go('app.list');
+
 		}, function(err) {
 			console.log(err);
 		});
 	};
-}];
+};
 
 module.exports = loginController;

@@ -6,9 +6,19 @@
     <div class="view-content">
         <p>Here you can find your lists</p>
         <ul>
-            <li><a ui-sref="app.list.single">List 1</a></li>
-            <li>List 2</li>
-            <li>List 3</li>
+            <li ng-repeat='list in list.lists'>
+                <h2><a ui-sref="app.list.single({ id: list._id })">{{ list.name }}</a>
+                </h2>
+                <p>{{ list._id }}</p>
+            </li>
+
+            <li>
+                <form ng-action="list.add(newListName)">
+                    <input type="text" placeholder="New list" ng-model="newListName">
+                    <button class="button button__add">Add</button>
+                </form>
+            </li>
+            
         </ul>
     </div>
 </article>

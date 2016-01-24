@@ -3,11 +3,17 @@
 module.exports = function($locationProvider, $stateProvider, $urlRouterProvider) {
     "ngInject";
 
-    $urlRouterProvider.otherwise('/app/list');
+    $urlRouterProvider.otherwise('/li/list');
 
     $stateProvider
         .state('app', {
-            url: '/app'
+            url: '/li',
+            controller: function($localStorage, $state) {
+                var ls = $localStorage;
+                if(!ls.token) {
+                    $state.go('app.login');
+                }
+            }
         })
         .state('app.login', {
             url: "/login",
@@ -17,13 +23,14 @@ module.exports = function($locationProvider, $stateProvider, $urlRouterProvider)
         .state('app.list', {
             url: "/list",
             templateUrl: "/views/list/list.html",
-            controller: 'listController'
-        })
-        .state('app.list.single', {
-            url: "/single",
-            templateUrl: "/views/list/single.html",
             controller: 'listController',
             controllerAs: 'list'
+        })
+        .state('app.list.single', {
+            url: "/:id",
+            templateUrl: "/views/list/single.html",
+            controller: 'itemController',
+            controllerAs: 'todo'
         })
         .state('app.users', {
             url: "/users",

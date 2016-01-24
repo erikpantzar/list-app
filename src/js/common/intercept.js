@@ -1,7 +1,7 @@
 'use strict';
 /// authInterceptor module
-module.exports = ['$localStorage', '$q', function ($localStorage, $q) {
-
+module.exports = function ($localStorage, $q) {
+	"ngInject";
 
 	return {
 		request: function (config) {
@@ -22,4 +22,4 @@ module.exports = ['$localStorage', '$q', function ($localStorage, $q) {
 			return response || $q.when(response);
 		}
 	};
-}];
+};

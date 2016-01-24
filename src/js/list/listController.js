@@ -1,41 +1,26 @@
 'use strict';
 
-
-var listController = function (List) {
+// list controller
+module.exports = function (List) {
     "ngInject";
-    
+
     var vm = this;
 
-
-	var items = [{name: "hej"}];
-	vm.items = items;
-
-    function updateList (list) {
-    	vm.items = list;
-    }
-    
+    // LIST LIST 
     List.list().then(function(response) {
-        console.log(response);
-    }, function(err) { console.log(err); });
+        console.log(response.data);
+        vm.lists = response.data;
+    });
 
-    vm.add = function (item) {
-    	var data = {};
-    	data.name = item;
-    	data.date = new Date();
-    	data.checked = false;
-
-    	List.add(data, vm.items, updateList);
-		vm.itemInput = "";
+    vm.deleteList = function(id) {
+        List.del(id).then(function(response) {
+            console.log(response);
+        });
     };
 
-    vm.remove = function (item) {
-    	List.remove(item, vm.items, updateList);
-    };
-
-    vm.checked = function (item, el, i) {
-    	console.log(item, el, i);
-    	item.checked = true;
+    vm.addList = function (name) {
+        List.add(name).then(function(response) {
+           console.log(response); 
+        });
     };
 };
-
-module.exports = listController;

@@ -1,20 +1,16 @@
 'use strict';
 
 var gulp = require('gulp');
-var uglify = require('gulp-uglify'),
-ngAnnotate = require('gulp-ng-annotate');
+var uglify = require('gulp-uglify');
 
-var config = require('../config.js'), 
-handleError = require('./handleError');
-
+var config = require('../config.js');
+var handleError = require('./handleError');
 
 var uglifyTask = function () {
-	gulp.src(config.build+'/js/index.js')
-		.pipe(ngAnnotate())
+	return gulp.src('./build/js/index.js')
 		.pipe(uglify())
-		//.pipe(uglify())
 			.on('error', handleError('Sm00th'))
-		.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest('./build/js/'));
 };
 
 gulp.task('uglify', uglifyTask);

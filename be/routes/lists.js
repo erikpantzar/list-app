@@ -27,7 +27,6 @@ var _list = {
 		List.findOne({ _id: req.params.id }, function(err, list) {
 			if(err) {
 				return res.send(err);
-				db.close(); 
 			}
 
 			for(prop in req.body) {
@@ -49,7 +48,12 @@ var _list = {
 			if (err) { 
 				return res.send(err);
 			}
-
+			var _list = list.map(function(item) {
+				return {
+					id: item._id,
+					name: item.name
+				};
+			})
 			res.json(list); // end res
 		});  
 	},

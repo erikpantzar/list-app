@@ -1,6 +1,8 @@
 'use strict';
 
-var usersController = function ($scope, userService) {
+
+// User controller
+module.exports = function ($scope, userService) {
 	"ngInject";
 	
 	var vm = this;
@@ -16,5 +18,3 @@ var usersController = function ($scope, userService) {
 		console.log(response);
 	});
 };
-
-module.exports = usersController;

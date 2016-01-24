@@ -2,31 +2,40 @@
 
 var api = require('../common/api');
 
+
+// List service
 module.exports = function ($http) {
 	"ngInject";
 
-	var add = function(item, items, cb) {
-		items.push(item);
-		cb(items);
+	var add = function(name) {
+		return $http.post(api.list, { name: name });
 	};
 
-	var remove = function (item, items, cb) {
-		items.splice(items.indexOf(item), 1);
-		cb(items);
+	var del = function (name, id) {
+		var data = {
+			name: name,
+			id: id
+		};
+
+		return $http.del(api.lists, data);
+	};
+
+	var update = function(list) {
+		var data = {
+			list: list
+		};
+		
+		return $http.put(api.list, data);
 	};
 
 	var list = function () {
 		return $http.get(api.lists);
 	};
 
-	var get = function(id) {
-		return $http.get(api.lists, {id: id});
-	};
-
 	return {
 		add: add,
-		remove: remove,
-		get: get,
-		list: list
+		del: del,
+		list: list,
+		update: update
 	};
 };
