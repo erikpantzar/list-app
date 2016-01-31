@@ -49,7 +49,7 @@ angular / react
 
 
 - 0.0
-    - setup stack
+    - ~~setup stack~~
     - ~~define goal~~
     - ~~setup roadmap~~
     - ~~setup project on github~~
@@ -61,18 +61,18 @@ angular / react
     2. ~~save list localstorage~~
     3. ~~controllers and views~~
 - 0.2 build & enviroment
-    1. build and deploy to enviroment automated
-    2. setup remote host ( heroku / other )
-    3. find db hosting mongodb
-- 0.3  DB storage and auth
-    1. implement db storage of list
-    2. expressjs stuff
-    3. check on auth
+    1. ~~build and deploy to enviroment automated~~ (heroku OK?!)
+    2. ~~setup remote host ( heroku / other )~~
+    3. ~~find db hosting mongodb~~
+- 0.3  ~~DB storage and auth~~
+    1. ~~implement db storage of list~~
+    2. ~~expressjs stuff~~
+    3. ~~check on auth~~
 
 - 0.4 data and auth
-    1. api design
-    2. auth step 1 implementation
-    3. auth ( setup tokens )
+    1. ~~api design~~
+    2. auth step 1 implementation => https://gist.github.com/erikpantzar/bf881715946424fabc66
+    3. auth ( setup tokens ) => https://gist.github.com/erikpantzar/bf881715946424fabc66
 - 0.5  fun stuff
     1. realtime
     2. add items simultaneously as other user
@@ -81,7 +81,7 @@ angular / react
     2. some more designs of views
 - 0.7 Test
     1. Register users
-    2. Forgot password
+    2. "Forgot password"
     3. Let 2 mothers use the app to write good features about their sons
     4. Let 2 mothers share lists with another user
 
