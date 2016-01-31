@@ -23,6 +23,11 @@ module.exports = function ($http) {
 		return $http.put(api.lists, data);	
 	};
 
+
+	var get = function (id) {
+		return $http.get(api.lists+id);
+	};
+
 	var remove = function (item, items, cb) {
 		items.splice(items.indexOf(item), 1);
 		cb(items);
@@ -31,6 +36,7 @@ module.exports = function ($http) {
 	return {
 		add: add,
 		remove: remove,
-		update: update
+		update: update,
+		get: get
 	};
 };

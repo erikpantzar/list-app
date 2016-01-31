@@ -25,7 +25,7 @@ module.exports = function ($stateParams, $state, itemService) {
     	data.date = new Date();
     	data.checked = false;
 
-    	Todo.add(data, vm.items);
+    	itemService.add(data, vm.items);
 		vm.itemInput = "";
     };
 

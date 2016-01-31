@@ -2,15 +2,6 @@
 
 var	angular = require('angular');	
 require('ngStorage');
-
-var loginController = require('./users/loginController');
-var usersController = require('./users/usersController');
-var userService = require('./users/userService');
-var listController = require('./list/listController');
-var List = require('./list/listService');
-var itemController = require('./list/itemController');
-var itemService = require('./list/itemService');
-
 var routes = require('./common/routes');
 var authInterceptor = require('./common/intercept');
 
@@ -30,14 +21,21 @@ angular.module('listApp')
 		$httpProvider.interceptors.push('authInterceptor'); });
 
 
-angular.module('listApp')
-	.controller('itemController', itemController)
-	.controller('itemService', itemService);
-	
+var loginController = require('./users/loginController');
+var usersController = require('./users/usersController');
+var userService = require('./users/userService');
+var listController = require('./list/listController');
+var listService = require('./list/listService');
+var itemController = require('./list/itemController');
+var itemService = require('./list/itemService');
+
 // controllers and services
 angular.module('listApp')
-	.service('List', List)
+	.service('List', listService)
 	.service('userService', userService)
 	.controller('listController', listController)
 	.controller('usersController', usersController)
-	.controller('loginController', loginController);
+	.controller('loginController', loginController)
+	.controller('itemController', itemController)
+	.service('itemService', itemService);
+;
