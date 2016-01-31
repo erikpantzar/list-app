@@ -17,8 +17,8 @@
 
 @keyframes viewIn {
   from {
-  transform: translate(100%,0);
- }
+    transform: translate(100%,0);
+  }
   to {
     transform: translate(0,0);
   }
@@ -30,6 +30,6 @@
   }
 
   to {
-    transform: translate(-100%,0);
+    transform: translate(100%,0);
   }
 }

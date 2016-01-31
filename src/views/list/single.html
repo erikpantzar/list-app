@@ -1,23 +1,27 @@
-<div class="view">
-    <form ng-submit="list.add(list.itemInput)"
+<article class="view">
+    <header class="view__header"><h1>{{ todo.name }}</h1></header>
+    <a class="link-view-back" ui-sref="app.list">Back to Lists</a>
+
+    <form ng-submit="todo.add(list.itemInput)"
           class="item__form">
-        <input type="text" placeholder="Add an item" ng-model="list.itemInput"
+        <input type="text" placeholder="Add an item" ng-model="todo.itemInput"
             class="item__input">
     </form>
+    
 
+    {{ todo.todoItems }}
     <ul ng-if="list.items" class="items-list">
-        <li ng-repeat="item in list.items track by $index | orderBy:$index"
+        <li ng-repeat="item in todo.items track by $index | orderBy:$index"
             class="items-list__item"
-            ng-init="item.checked = false"
-            ng-click="checked = true" ng-class="{checked: item.checked}">
+            ng-click="checked = true">
             
             
             <div class="items-list__item__element">
-                {{ item.name }}
+                {{ todo.name }}
             </div>
 
             <button class="items-list__item__button button__remove"
-                ng-click="list.remove(item)">Remove</button>
+                ng-click="todo.remove(item)">Remove</button>
         </li>
     </ul>
-</div>
+</article>

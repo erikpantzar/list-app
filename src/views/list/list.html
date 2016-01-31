@@ -1,14 +1,22 @@
 <article class="view">
-    <header class="view__header header">
-        <h1>Lists</h1>
-    </header>
 
-    <div class="view-content">
-        <p>Here you can find your lists</p>
+    <div class="view-content list__content">
         <ul>
-            <li><a ui-sref="add">List 1</a></li>
-            <li>List 2</li>
-            <li>List 3</li>
+            <li ng-repeat='list in list.lists'>
+                <h2><a ui-sref="app.list.single({ id: list._id })">{{ list.name }}</a>
+                </h2>
+                <p>{{ list._id }}</p>2
+            </li>
+
+            <li>
+                <form ng-action="list.add(newListName)">
+                    <input type="text" placeholder="New list" ng-model="newListName">
+                    <button class="button button__add">Add</button>
+                </form>
+            </li>
+            
         </ul>
     </div>
 </article>
+
+<section class="child-view" ui-view></section>

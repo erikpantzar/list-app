@@ -8,8 +8,7 @@ var config = require('../config');
 
 
 var jshintTask = function() {
-	return gulp.src(
-		[config.script.src+'/**/**.js', 
+	gulp.src([config.script.src+'/**/**.js', 
 			'./gulpfile.js'])
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('jshint-stylish'))

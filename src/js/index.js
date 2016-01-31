@@ -1,30 +1,41 @@
 'use strict';
-var	angular = require('angular');
 
-(function (angular) {
-
-	var	uiRouter = require('angular-ui-router');
-	var ngAnimate = require('angular-animate');
-	var ngTouch = require('angular-touch');
-
-	var ngModules = [
-		uiRouter,
-		ngAnimate,
-		ngTouch
-	];
+var	angular = require('angular');	
+require('ngStorage');
+var routes = require('./common/routes');
+var authInterceptor = require('./common/intercept');
 
 
-	// var api = require('./common/api');
-	var routes = require('./common/routes');
+// setup like this coz otherwize broekn
+angular.module('listApp', [
+	require('angular-ui-router'),
+	require('angular-animate'),
+	'ngStorage'
+	])
+	.config(routes)
+	.factory('authInterceptor', authInterceptor);
 
-	var listController = require('./list/list');
-	var listService = require('./list/service');
+angular.module('listApp')
+ 	.config(function ($httpProvider) {
+		$httpProvider.defaults.headers.common['Content-Type'] = "application/json";
+		$httpProvider.interceptors.push('authInterceptor'); });
 
 
-	angular.module('listApp', ngModules)
-		.config(routes)
-		.controller('listController', ['listService', listController])
-		.service('listService', listService);
+var loginController = require('./users/loginController');
+var usersController = require('./users/usersController');
+var userService = require('./users/userService');
+var listController = require('./list/listController');
+var listService = require('./list/listService');
+var itemController = require('./list/itemController');
+var itemService = require('./list/itemService');
 
-
-})(angular);
+// controllers and services
+angular.module('listApp')
+	.service('List', listService)
+	.service('userService', userService)
+	.controller('listController', listController)
+	.controller('usersController', usersController)
+	.controller('loginController', loginController)
+	.controller('itemController', itemController)
+	.service('itemService', itemService);
+;
