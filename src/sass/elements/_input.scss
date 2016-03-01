@@ -18,3 +18,8 @@ label {
   box-sizing: border-box;
   outline: none;
 }
+
+input[type=password] {
+  letter-spacing: 3px;
+  font-size: 1.4em;
+}
