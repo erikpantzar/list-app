@@ -13,29 +13,35 @@ angular.module('listApp', [
 	'ngStorage'
 	])
 	.config(routes)
-	.factory('authInterceptor', authInterceptor);
-
-angular.module('listApp')
+	.factory('authInterceptor', authInterceptor)
  	.config(function ($httpProvider) {
 		$httpProvider.defaults.headers.common['Content-Type'] = "application/json";
 		$httpProvider.interceptors.push('authInterceptor'); });
 
 
 var loginController = require('./users/loginController');
-var usersController = require('./users/usersController');
 var userService = require('./users/userService');
+
 var listController = require('./list/listController');
 var listService = require('./list/listService');
+
+
+//var usersController = require('./users/usersController');
+
+
 var itemController = require('./list/itemController');
-var itemService = require('./list/itemService');
+// var itemService = require('./list/itemService');
 
 // controllers and services
 angular.module('listApp')
+	
+	.service('User', userService)
+	.controller('login', loginController)
+
 	.service('List', listService)
-	.service('userService', userService)
 	.controller('listController', listController)
-	.controller('usersController', usersController)
-	.controller('loginController', loginController)
+
 	.controller('itemController', itemController)
-	.service('itemService', itemService);
+	// .service('itemService', itemService);
+	/*	.controller('usersController', usersController)	*/
 ;

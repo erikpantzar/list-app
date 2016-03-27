@@ -2,16 +2,20 @@
 
     <div class="view-content list__content">
         <ul>
-            <li ng-repeat='list in list.lists'>
-                <h2><a ui-sref="app.list.single({ id: list._id })">{{ list.name }}</a>
-                </h2>
-                <p>{{ list._id }}</p>2
+            <li class="list-item"
+                ng-repeat='list in listVm.lists' data-index="{{ $index }}" data-itemId="{{ list._id }}">
+                <h2><a ui-sref="app.list.single({ id: list._id })">{{ list.name }}</a></h2>
+                <p>accessBy {{ list.accessBy }}</p>
+                <button class="button button--secondary" 
+                    ng-click="listVm.deleteList(list._id, $index)">Remove</button>
+           
             </li>
 
-            <li>
-                <form ng-action="list.add(newListName)">
-                    <input type="text" placeholder="New list" ng-model="newListName">
-                    <button class="button button__add">Add</button>
+            <li class="list-item">
+                <form ng-action="listVm.add(newListName)">
+                    <input type="text" placeholder="New list" 
+                        ng-model="listName">
+                    <button class="button button__add" ng-click="listVm.addList(listName)">Add</button>
                 </form>
             </li>
             

@@ -1,39 +1,7 @@
 
 
-.button {
-  display: block;
-  outline: none;
-  appearance: none;
-  float: left;
-  font-size: .875em;
-  line-height: 3em;
-  height: 3em;
-  text-align: center;
-  margin: 0 0 10px;
+button {
+  display: inline-block;
+  margin: 0 5px 10px 0;
+  padding: 12px;
 }
-
-.button__action {
-  @extend .button !optional;
-}
-
-
-
-$dark: #ccc;
-$light: #eee;
-
-.form__buttons__button {
-  color: #666;
-  text-transform: uppercase;
-  background: $light;
-
-  &:hover {
-    background: lighten($dark, 5%);
-  }
-
-  &--active,
-  &:active {
-    background: $dark;
-  }
-}
-
-

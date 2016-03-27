@@ -13,7 +13,4 @@ var gulp = require('./gulp')([
 ]);
 
 gulp.task('default', ['sass', 'jshint', 'browserify', 'htmlmin', 'watch', 'server']);
-gulp.task('dev', ['htmlmin', 'sass', 'jshint', 'browserify', 'watch', 'server']);
-gulp.task('scripts', ['jshint', 'browserify', 'uglify']);
-
 

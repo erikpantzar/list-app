@@ -18,19 +18,20 @@ module.exports = function($locationProvider, $stateProvider, $urlRouterProvider)
         .state('app.login', {
             url: "/login",
             templateUrl: "/views/login/login.html",
-            controller: 'loginController'
+            controller: 'login',
+            controllerAs: 'login'
         })
         .state('app.list', {
             url: "/list",
             templateUrl: "/views/list/list.html",
             controller: 'listController',
-            controllerAs: 'list'
+            controllerAs: 'listVm'
         })
         .state('app.list.single', {
             url: "/:id",
             templateUrl: "/views/list/single.html",
             controller: 'itemController',
-            controllerAs: 'todo'
+            controllerAs: 'todoVm'
         })
         .state('app.users', {
             url: "/users",

@@ -3,36 +3,15 @@
         <h1>Login</h1>
     </header>
 
-    <div class="view-content">
+    <section class="view-content">
+        <p>login</p>
 
-        <p>Welcome yo!</p>
-
-        <form class="form__login" ng-submit="login(username, password)">
-
-            <div class="form__row">
-                <label for="email">mail</label>
-                <input type="email" id="email" placeholder="" ng-model="mail">
-            </div>
-
-            <div class="form__row">
-                <label class="label__pw" for="pw">*****</label>
-                <input type="password" id="pw" ng-model="password">
-            </div>
-
-            <div class="form__row form__name">
-                <label for="name">Name</label>
-                <input type="text" id="name" ng-model="username">
-            </div>
-
-            <div class="form__buttons">
-                <button class="button__login button__action form__buttons__button"
-                        ng-click="login(username, password)">Login</button>
-                <button class="button__register button__action form__buttons__button"
-                        ng-click="register(email, name, password)">Register</button>
-            </div>
+        <form class="form__login" ng-submit="login.do(user)">
+            <input type="text" placeholder="name" ng-model="user.name" required>
+            <input type="password" placeholder="password" ng-model="user.password" required></input> 
+            <input type="submit" value="Login"></input>
         </form>
 
-    </div>
-
+    </section>
 
 </article>

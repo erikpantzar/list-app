@@ -1,28 +1,20 @@
 <article class="view">
     <header class="view__header"><h1>{{ todo.name }}</h1></header>
-    <a class="link-view-back" ui-sref="app.list">Back to Lists</a>
+    <section class="view-content">
+        
+        <ul class="list list--todo">
+            <li class="list-item list-item--todo" 
+                ng-repeat="todo in todoVm.todos track by $index"
+                data-index="{{ $index }}">
+                <p>{{ todo.name }}</p>
+                <button ng-click="todoVm.remove($index)">Remove</button>
 
-    <form ng-submit="todo.add(list.itemInput)"
-          class="item__form">
-        <input type="text" placeholder="Add an item" ng-model="todo.itemInput"
-            class="item__input">
-    </form>
+            </li>
+        </ul>
 
-    
+        <form ng-submit="todoVm.add(todoVm.newTodo)">
+            <input type=text ng-model="todoVm.newTodo.name" placeholder="Add new todo"></input>
+        </form>
 
-    {{ todo.todoItems }}
-    <ul ng-if="list.items" class="items-list">
-        <li ng-repeat="item in todo.items track by $index | orderBy:$index"
-            class="items-list__item"
-            ng-click="checked = true">
-            
-            
-            <div class="items-list__item__element">
-                {{ todo.name }}
-            </div>
-
-            <button class="items-list__item__button button__remove"
-                ng-click="todo.remove(item)">Remove</button>
-        </li>
-    </ul>
+    </section>
 </article>

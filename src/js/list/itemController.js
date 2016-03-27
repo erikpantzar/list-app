@@ -2,38 +2,58 @@
 
 
 // Todo controller
-module.exports = function ($stateParams, $state, itemService) {
+module.exports = function ($stateParams, List) {
     'ngInject';
 
 	var vm = this;
+    var listId = $stateParams.id;
 
-    itemService.get($stateParams.id).then(function(response) {
-        var todoReponse = response.data;
+    vm.todos = [];
+    vm.add = addTodo;
+    vm.remove = removeTodo;
 
-        vm.name = todoReponse.name;
-        vm.todoItems = todoReponse.todoItems;
+    // init
+    init();
 
-	}, function(err) {
-        console.log(err);
-        $state.go('app.login');
-    });
+    function init () {
+        List.get(listId).then(function (response) {
+            console.log(response);
+            var listObj = response.data;
+            vm.todos = listObj.todoItems;
+        });
+    }
 
-	// item actions
-    vm.add = function (item) {
-    	var data = {};
-    	data.name = item;
-    	data.date = new Date();
-    	data.checked = false;
 
-    	itemService.add(data, vm.items);
-		vm.itemInput = "";
-    };
+    // methods
+    function addTodo (item) {
+        vm.newTodo = "";
+        
+        if( vm.todos ) {
+            vm.todos.push(item);
+        } else {
+            vm.todos = [item];
+        }
 
-    vm.remove = function (item) {
-        itemService.del(item, vm.items);
-    };
+        var data = {
+            "todoItems": vm.todos
+        };
 
-    vm.checked = function (item) {
-    	item.checked = true;
-    };
+        List.update(listId, data).then(function(response) {
+            console.log(response);
+        });
+    }
+
+
+    function removeTodo (index) {
+        vm.todos.splice(index, 1);
+
+        var data = {
+            "todoItems": vm.todos
+        };
+
+        List.update(listId, data).then(function(response) {
+            console.log(response);
+        });
+    }
+
 };
