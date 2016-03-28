@@ -1,7 +1,9 @@
 'use strict';
 
+var angular = require('angular');
+
 // list controller
-module.exports = function (List, $localStorage, $state) {
+module.exports = function ($localStorage, $state, User, List) {
     "ngInject";
 
     var vm = this;
@@ -16,9 +18,25 @@ module.exports = function (List, $localStorage, $state) {
         List.list().then(successHandler, errorHandler);
     }
 
+    
     function successHandler (response) {
-        vm.lists = response.data;
+        var lists = response.data;
+        vm.lists = lists;
+
+        vm.lists = lists.filter(function(list) {
+            var names = [];
+            var logName = function (re) {
+                names.push(re.data.name);
+            };
+
+            for (var i = 0; i < list.accessBy.length; i++ ) {
+                User.get(list.accessBy[i]).then(logName);
+            }
+
+            return list.names = names;
+        });
     }
+
 
     function errorHandler (error) {
         console.log(error);

@@ -36,6 +36,7 @@ module.exports = function($locationProvider, $stateProvider, $urlRouterProvider)
         .state('app.users', {
             url: "/users",
             templateUrl: "/views/users/users.html",
-            controller: 'usersController'
+            controller: 'usersController',
+            controllerAs: 'usersVm'
         });
 };

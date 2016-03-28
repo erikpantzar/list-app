@@ -4,8 +4,14 @@
         <ul>
             <li class="list-item"
                 ng-repeat='list in listVm.lists' data-index="{{ $index }}" data-itemId="{{ list._id }}">
-                <h2><a ui-sref="app.list.single({ id: list._id })">{{ list.name }}</a></h2>
-                <p>accessBy {{ list.accessBy }}</p>
+                <h2><a ui-sref="app.list.single({ id: list._id })">{{ list.name }}</a>  ( {{ list.todoItems.length }} )</h2>
+                
+                <button ng-click="listVm.updateAccess( list._id )">
+                    <p>accessBy {{ list.accessBy }}</p>
+                </button>
+
+                {{ list.names }}
+
                 <button class="button button--secondary" 
                     ng-click="listVm.deleteList(list._id, $index)">Remove</button>
            

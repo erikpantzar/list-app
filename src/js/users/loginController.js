@@ -7,9 +7,11 @@ function loginController ($localStorage, $state, User) {
 
 	var vm = this;
 	vm.do = login;
+	vm.register = register;
 
+
+	// methods
 	function login (user) {
-		console.log(user);
 
 		User.auth(user).then(function(response) {
 			var token = response.data.token;
@@ -24,6 +26,15 @@ function loginController ($localStorage, $state, User) {
 
 		}, function(err) {
 			console.log(err);
+		});
+	}
+
+
+	function register (user) {
+		User.register(user).then(function (response) {
+			console.log(response);
+
+			vm.user = {};
 		});
 	}
 }

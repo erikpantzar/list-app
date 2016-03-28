@@ -9,7 +9,13 @@
         <form class="form__login" ng-submit="login.do(user)">
             <input type="text" placeholder="name" ng-model="user.name" required>
             <input type="password" placeholder="password" ng-model="user.password" required></input> 
-            <input type="submit" value="Login"></input>
+            <input type="email" placeholder="@" ng-model="user.email"></input>
+
+            <button type="submit">Login</button>
+            
+            <button type="button" 
+                ng-if="user.email"
+                ng-click="login.register(user)">Register</button>
         </form>
 
     </section>
