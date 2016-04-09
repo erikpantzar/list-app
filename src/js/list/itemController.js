@@ -17,7 +17,6 @@ module.exports = function ($stateParams, List) {
 
     function init () {
         List.get(listId).then(function (response) {
-            console.log(response);
             var listObj = response.data;
             vm.todos = listObj.todoItems;
         });

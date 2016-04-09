@@ -1,23 +1,20 @@
-<article class="view">
-    <header class="view__header header">
-        <h1>Login</h1>
-    </header>
 
-    <section class="view-content">
-        <p>login</p>
 
-        <form class="form__login" ng-submit="login.do(user)">
-            <input type="text" placeholder="name" ng-model="user.name" required>
-            <input type="password" placeholder="password" ng-model="user.password" required></input> 
-            <input type="email" placeholder="@" ng-model="user.email"></input>
+<form class="form form--login" ng-submit="login.do(user)">
+    
+    <input type="text"
+        class="form__input" 
+        placeholder="name" 
+        ng-model="user.name" required>
 
-            <button type="submit">Login</button>
-            
-            <button type="button" 
-                ng-if="user.email"
-                ng-click="login.register(user)">Register</button>
-        </form>
+    <input type="password" 
+        class="form__input"
+        placeholder="password" 
+        ng-model="user.password" required></input> 
 
-    </section>
-
-</article>
+    <button class="button button--submit" type="submit">Login</button>    
+    
+    <button type="button" 
+        ng-if="user.email"
+        ng-click="login.register(user)">Register</button>
+</form>
