@@ -3,7 +3,7 @@
 var	angular = require('angular');	
 require('ngStorage');
 var routes = require('./common/routes');
-var authInterceptor = require('./common/intercept');
+var authInterceptor = require('./common/intercept'); // HTTP INTERCEPTOR
 
 
 // setup like this coz otherwize broekn
@@ -13,7 +13,7 @@ angular.module('listApp', [
 	'ngStorage'
 	])
 	.config(routes)
-	.factory('authInterceptor', authInterceptor);
+	.factory('authInterceptor', authInterceptor); // HTTP INTERCEPTOR AS FACT
 
 angular.module('listApp')
  	.config(function ($httpProvider) {
