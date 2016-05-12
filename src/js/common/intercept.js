@@ -10,6 +10,7 @@ module.exports = function ($localStorage, $q) {
 
 			config.headers = config.headers || {};
 			if (token !== null) {
+				// sets header x-access-token to all requests
 				config.headers['x-access-token'] = token;
 			}
 			return config;
@@ -17,6 +18,7 @@ module.exports = function ($localStorage, $q) {
 		response: function (response) {
 			if (response.status === 401) {
 				// handle the case where the user is not authenticated
+				// could have error handlers here
 				console.log('no auth');
 			}
 			return response || $q.when(response);
