@@ -13,7 +13,7 @@
     "url": "https://github.com/erikpantzar/listapp/issues"
   },
   "homepage": "https://github.com/erikpantzar/listapp#readme",
-  "devDependencies": {
+  "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "mongoose": "^4.5.4"
