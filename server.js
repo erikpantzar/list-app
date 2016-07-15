@@ -9,9 +9,8 @@ var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 
 
-
 // Schema for lists
-var List = require('./models/list');
+var List = require('./app/models/list');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST

@@ -2,6 +2,7 @@
   "name": "listapp",
   "version": "0.0.1",
   "description": "express api",
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/erikpantzar/listapp.git"
