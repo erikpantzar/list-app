@@ -1,0 +1,47 @@
+{
+  "name": "List.App",
+  "version": "0.0.1",
+  "description": "List app",
+  "main": "Gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.0"
+  },
+  "devDependencies": {
+    "angular": "^1.4.8",
+    "angular-animate": "~1.4.6",
+    "angular-touch": "^1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "browser-sync": "^2.11.0",
+    "browserify": "^12.0.1",
+    "compression": "^1.6.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-copy": "0.0.2",
+    "gulp-csslint": "^0.2.0",
+    "gulp-htmlmin": "^1.3.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.1.0",
+    "gulp-sass-lint": "^1.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.5",
+    "jquery": "^2.2.0",
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.1.0",
+    "lodash.assign": "^4.0.0",
+    "logger": "0.0.1",
+    "ngstorage": "^0.3.10",
+    "open": "0.0.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "author": "Erik Pantzar",
+  "license": "MIT"
+}
