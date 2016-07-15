@@ -1,5 +1,5 @@
 {
-  "name": "listapp"
+  "name": "listapp",
   "version": "0.0.1",
   "description": "express api",
   "main": "index.js",
