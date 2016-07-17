@@ -16,7 +16,6 @@ router.route('/users/:user_id')
 
 module.exports = router;
 
-
 // Methods
 // /api/users
 function addUser(req, res) {
