@@ -5,7 +5,8 @@ var Schema       = mongoose.Schema;
 
 var ListSchema   = new Schema({
     name: String,
-    todos: Array
+    todos: Array,
+    users: Array
 });
 
 module.exports = mongoose.model('List', ListSchema);
