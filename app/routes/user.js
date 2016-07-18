@@ -3,6 +3,8 @@ var router = express.Router();
 var User = require('../models/user'); // Schema for User
 
 // INIT
+// add login
+
 router.route('/users')
     .get(listUsers)
     .post(addUser)

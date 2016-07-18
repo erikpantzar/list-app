@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 
 var listRoute = require('./app/routes/list');
 var userRoute = require('./app/routes/user');
+var todoRoute = require('./app/routes/todo');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -35,8 +36,9 @@ router.get('/', function(req, res) {
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
-app.use('/api', listRoute);
-app.use('/api', userRoute);
+app.use('/api', listRoute)
+    .use('/api', userRoute)
+    .use('/api', todoRoute);
 
 // START THE SERVER
 // =============================================================================
