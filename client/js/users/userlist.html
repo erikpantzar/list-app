@@ -1,0 +1,17 @@
+<h2>Users</h2>
+<ul>
+    <li ng-repeat="user in $ctrl.users" ng-click="$ctrl.activeUserId = user._id">
+        {{ user.name }}
+    </li>
+</ul>
+
+<user-details ng-if="$ctrl.activeUserId"
+ userid="$ctrl.activeUserId"></user-details>
+
+<h3>Add user</h3>
+<form ng-submit="$ctrl.addUser(name, mail, pw)">
+    <input type="text" placeholder="name" ng-model="name" required>
+    <input type="email" placeholder="mail" ng-model="mail" required>
+    <input type="password" placeholder="password" ng-model="pw" required>
+    <button type="submit">Add new user</button>
+</form>

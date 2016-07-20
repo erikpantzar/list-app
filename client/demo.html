@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>unpic.co/lino</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="/js/lib/angular.min.js"></script>
+    <script src="/js/lib/angular-resource.min.js"></script>
+    <script src="/js/users/user.module.js"></script>
+    <script src="/js/main.js"></script>
+</head>
+<body ng-app="picco">
+
+    <user-list></user-list>
+    
+    <div ng-controller="userController as userVm">
+        <h2>Users</h2>
+        <ul>
+            <li ng-repeat="user in userVm.users">
+                {{ user.name }} {{ user._id }}
+            </li>
+        </ul>
+    </div>
+
+    <div ng-controller="listController as listVm">
+        <h2>Lists</h2>
+        <p>Lists gets queried with user_id.<br>
+            Hardcoded user_id is 578b5defda8a9e7a68d325a3</p>
+        <ul>
+            <li ng-repeat="list in listVm.lists">
+                {{ list.name }} {{ list._id }} {{ list.users }}
+            </li>
+        </ul>
+    </div>
+
+
+    <div ng-controller="todoController as todoVm">
+        <h2>Todos</h2>
+        <p>Todos get queried with list_id. <br>
+            current list_id is 578b6c4a44e7d3cb6c040c3e
+        </p>
+        <ul>
+            <li ng-repeat="todo in todoVm.todos">
+                {{ todo.name }} {{ todo.done }}
+            </li>
+        </ul>
+    </div>
+
+
+</body>
+</html>

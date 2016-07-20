@@ -1,0 +1,7 @@
+<h2>{{ $ctrl.details.name }}</h2>
+<p>{{ $ctrl.details._id }}</p>
+<input type="email" ng-model="$ctrl.details.email" placeholder="email">
+<p>{{ $ctrl.details.password }}</p>
+
+<button ng-click="$ctrl.removeUser($ctrl.details._id)">Remove</button>
+<button ng-click="$ctrl.updateUser($ctrl.details)">Update</button>

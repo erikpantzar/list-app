@@ -32,5 +32,6 @@ user_id
 todo_id
 578b70a7f69c8c836dc71bef
 
-## Sourcecode for API
-https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
+## Sources
+- https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
+- http://blog.modulus.io/nodejs-and-express-static-content
