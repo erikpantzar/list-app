@@ -4,9 +4,9 @@ var List = require('../models/list'); // Schema for User
 
 
 // debug only
-router.route('/lists')
-    .get(listLists)
-;
+// router.route('/lists')
+//     .get(listLists)
+// ;
 
 router.route('/lists/:user_id')
     .get(list)
@@ -24,7 +24,7 @@ module.exports = router;
 // Methods
 // /api/lists/:user_id
 function list(req, res) {
-    List.find({ users: req.params.user_id}, function(err, lists) {
+    List.find({ users: req.params.user_id }, function(err, lists) {
         if(err) {
             res.send(err);
         }

@@ -17,7 +17,6 @@ function userListController($scope, $element, $attrs, Users) {
 
     // Methods
     function addUser(name, mail, password) {
-        console.log(name, mail, password);
         var newUser = {
             name: name,
             email: mail,
@@ -28,9 +27,7 @@ function userListController($scope, $element, $attrs, Users) {
         });
     }
 
-    function updateUser(user, prop, value) {
-
-    }
+    function updateUser(user, prop, value) {}
 
     function deleteUser(user) {
         var idx = vm.users.indexOf(user);
@@ -48,6 +45,7 @@ function userDetailsController($scope, $element, $attrs, Users) {
     vm.details = Users.query({ user: vm.userid });
     vm.removeUser = removeUser;
     vm.updateUser = updateUser;
+    vm.$onChanges = onChange;
 
 
     // methdos
@@ -64,6 +62,10 @@ function userDetailsController($scope, $element, $attrs, Users) {
         });
 
         vm.onDelete({user: vm.details});
+    }
+
+    function onChange(changeObj) {
+        console.log('change: ',changeObj);
     }
 }
 

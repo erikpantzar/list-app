@@ -1,0 +1,14 @@
+<p> list id {{ $ctrl.listId }}</p>
+
+<ul>
+    <li ng-repeat="todo in $ctrl.todoList">
+        <todo-item todo="todo" list-id="$ctrl.list" on-delete="$ctrl.onDelete(todo)"></todo-item>
+    </li>
+</ul>
+
+<form ng-submit="$ctrl.addTodo(name)">
+    <input type="text" ng-model="name" placeholder="Todo name">
+    <button type="submit">Add todo</button>
+</form>
+
+<hr>

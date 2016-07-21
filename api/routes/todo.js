@@ -2,12 +2,15 @@ var express = require('express');
 var router = express.Router();
 var Todo = require('../models/todo'); // Schema for User
 
+// router.route('/todos')
+//     .get(listTodos);
+
 router.route('/todos/:list_id')
     .get(listTodos)
     .post(addTodo)
 ;
 
-router.route('/todos/:todo_id')
+router.route('/todos/:list_id/:todo_id')
     .get(getTodo)
     .put(updateTodo)
     .delete(deleteTodo)
@@ -45,7 +48,7 @@ function listTodos(req, res) {
    });
 }
 
-// /api/todos/:list_id/:todo_id
+// /api/todos/:todo_id
 function getTodo(req, res) {
     Todo.findById(req.params.todo_id, function(err, todo) {
         if (err) {

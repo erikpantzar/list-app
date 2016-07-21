@@ -28,7 +28,6 @@ list_id
 user_id
 578b5defda8a9e7a68d325a3
 
-
 todo_id
 578b70a7f69c8c836dc71bef
 
