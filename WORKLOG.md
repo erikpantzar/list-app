@@ -32,3 +32,6 @@ Just gotta find how to post events to parent component. DONE!
 ## Just gotta do Updates now, and nicer ADD!
 TODO TOOMMORROW or smthn
 Issue: cannot add todo to other lists but first!!
+
+## design and issue formatting
+Designed some flow things. Have issue where i add todos, they get added to the first list. Need to, when i add a todo, also update a list with the todos reference.. Where do I do this? where do I put this logic?

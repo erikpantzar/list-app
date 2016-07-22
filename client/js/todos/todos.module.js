@@ -17,6 +17,13 @@ function todoListController($scope, $element, $attrs, Todo) {
     vm.updateTodo = updateTodo;
     vm.onDelete = del;
 
+    // methods
+    function init() {
+        vm.todoList = Todo.query({ list_id: vm.list_id, todo_id: vm.todos }, function(ee) {
+            // DONE BITCHES console.log(ee);
+        });
+    }
+
     function del(todo) {
         console.log(todo);
         console.log(vm);
@@ -29,15 +36,6 @@ function todoListController($scope, $element, $attrs, Todo) {
         });
     }
 
-    // methods
-    function init() {
-        vm.todoList = Todo.query({ list_id: vm.list_id, todo_id: vm.todos }, function(ee) {
-            // DONE BITCHES console.log(ee);
-        });
-    }
-
-    }
-
     function addTodo(todoName) {
         console.log(vm.listId);
         Todo.save({ list_id: vm.listId }, { name: todoName }, function(success) {
@@ -47,7 +45,7 @@ function todoListController($scope, $element, $attrs, Todo) {
         });
     }
 
-    function change(obj) { console.log(obj); 
+    function change(obj) { console.log(obj); }
     function updateTodo(todo) {}
 }
 
