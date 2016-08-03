@@ -1,6 +1,6 @@
-<h3>{{ $ctrl.todo.name }}</h3>
+<h3>{{ $ctrl.todo.name }} {{ $ctrl.todo._id }}</h3>
 <label>
-    {{ $ctrl.todo.done }}
-    <input type="checkbox" ng-model="$ctrl.todo.done" ng-change="$ctrl.todo.done !== $ctrl.todo.done">
-    <button type="button" ng-click="$ctrl.remove()">X</button>
+  {{ $ctrl.todo.done }}
+  <input type="checkbox" ng-model="$ctrl.todo.done" ng-change="$ctrl.todo.done !== $ctrl.todo.done">
+  <button type="button" ng-click="$ctrl.remove()">X</button>
 </label>

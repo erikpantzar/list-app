@@ -1,4 +1,8 @@
-body, html {margin: 0; padding: 0;}
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     padding: 20px;
 }
@@ -19,12 +23,11 @@ input {
     padding-left: 10px;
 }
 
-h1,h2,h3,h4,h5 {
+h1, h2, h3, h4, h5 {
     font-family: sans-serif;
     margin: 1em 0 0;
     color: gold;
 }
-
 
 hr {
     margin: 2em 0;
