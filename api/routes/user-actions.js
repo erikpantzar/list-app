@@ -13,18 +13,28 @@ router.route('/user')
 module.exports = router;
 
 function login(req, res) {
+  const { name, passphrase } = req.body;
+
   Users.find(function(err, users) {
     if(err) { res.send(err) }
 
-    console.log(user);
-
-    const user = users.filter((user)=> {
-      if (user.passphrase) {
+    const user = users.filter((user) => {
+      if (user.passphrase == passphrase && user.name == name) {
         return user;
       }
     });
 
-    res.send({ message: 'Yah'});
+    if (user.length) {
+      const signedin = {
+        id: user[0]._id,
+        name: user[0].name,
+        email: user[0].email
+      }
+
+      res.send({ message: 'Sign in successfull', user: signedin});
+    } else {
+      res.send({ message: 'Wrong credentials' });
+    }
 
   });
 }
