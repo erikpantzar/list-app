@@ -13,10 +13,17 @@ router.route('/user')
 module.exports = router;
 
 function login(req, res) {
-  Users.find(function(err, user) {
+  Users.find(function(err, users) {
     if(err) { res.send(err) }
 
     console.log(user);
+
+    const user = users.filter((user)=> {
+      if (user.passphrase) {
+        return user;
+      }
+    });
+
     res.send({ message: 'Yah'});
 
   });
