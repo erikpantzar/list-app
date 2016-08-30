@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 var List = require('../models/list'); // Schema for User
 
-router.route('/lists')
-  .get((req, res)=> {
-    List.find((err, users) => {
-      if(err) { res.send(err) }
-      res.json(users);
-    })
-  })
-;
+// router.route('/lists')
+//   .get((req, res)=> {
+//     List.find((err, users) => {
+//       if(err) { res.send(err) }
+//       res.json(users);
+//     })
+//   })
+// ;
 
 router.route('/lists/:user_id')
   .get(list)

@@ -17,9 +17,10 @@ function loginController(Login) {
   vm.login = login;
 
   function login(name, passphrase) {
-    let loggedIn = Login.post({name: name, passphrase: passphrase}, function(response) {
+    Login.post({name: name, passphrase: passphrase}, function(response) {
       if(response.user) {
         console.log(response.user.id);
+        vm.onLogin({user: response.user});
       }
     }, function(error) {
       console.error(error);
@@ -31,7 +32,7 @@ var loginComponent = {
   templateUrl: './js/login/login.html',
   controller: loginController,
   bindings: {
-    id: '@'
+    onLogin: '&'
   }
 };
 

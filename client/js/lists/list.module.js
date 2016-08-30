@@ -13,7 +13,7 @@ var listsComponent = {
   templateUrl: './js/lists/lists.html',
   controller: listController,
   bindings: {
-    userId: '@'
+    userId: '<'
   }
 }
 

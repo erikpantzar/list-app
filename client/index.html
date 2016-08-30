@@ -15,11 +15,13 @@
   <script src="js/main.js"></script>
 
 </head>
-<body ng-app="picco">
+<body ng-app="picco" ng-controller="appController as appCtrl">
 
   <h1>Un piccolino</h1>
+  <p>User ID: {{ appCtrl.userID }}</p>
 
-  <login></login>
+  <login on-login="appCtrl.userHandler(user);"></login>
+  <lists ng-if="appCtrl.userID" user-id="appCtrl.userID"></lists>
 
 </body>
 </html>
