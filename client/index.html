@@ -18,7 +18,9 @@
 <body ng-app="picco" ng-controller="appController as appCtrl">
 
   <h1>Un piccolino</h1>
-  <p>User ID: {{ appCtrl.userID }} <button type="button" ng-if="appCtrl.userID" ng-click="appCtrl.userID = false">LogOut</button></p>
+  <p>User ID: {{ appCtrl.userID }} 
+    <button type="button" ng-if="appCtrl.userID" ng-click="appCtrl.userID = false">LogOut</button>
+  </p>
 
   <login ng-if="!appCtrl.userID" on-login="appCtrl.userHandler(user);"></login>
   <lists ng-if="appCtrl.userID" user-id="appCtrl.userID"></lists>
