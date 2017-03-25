@@ -1,36 +1,16 @@
+# Piccolino is done
 
-# listapp
+Idea was to build a webapp then transform to native app, just another todo app but entirestack built by me.
 
-## API
-*/api/lists/*
-- GET
-- POST __(name: "", todos: [], users: [])__
+## Takeaways
+- Learnt alot about mongo setup
+- ExpressJs is fairly easy to get going with
+- Security is not easy :D
+- Found heroku hard to setup
 
-*/api/lists/:list_id*
-- GET
-- PUT __(name: "", todos: [], users: [])__
-- DELETE
+## Did not do but value now
+- Having swagger to document ur API would have been nice, working on a feature in front-end and trying to remember what endpoint did what was hard due to in-frequest working on the task etc
 
-*/api/todos/:list_id*
-- GET
-- POST
-
-*/api/todos/:list_id/:todo_id*
-- GET
-- PUT
-- DELETE
-
-## DATTA
-
-list_id
-578b5defda8a9e7a68d325a3
-
-user_id
-578b5defda8a9e7a68d325a3
-
-todo_id
-578b70a7f69c8c836dc71bef
-
-## Sources
-- https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
-- http://blog.modulus.io/nodejs-and-express-static-content
+## Nextime 
+- Build first webpart in React, then port to native
+- Use Swagger/documentation for API
