@@ -1,5 +1,6 @@
 # Piccolino is done
 
+Will not be building on this project anymore.
 Idea was to build a webapp then transform to native app, just another todo app but entirestack built by me.
 
 ## Takeaways
