@@ -29,8 +29,7 @@ var port = process.env.PORT || 8080;        // set our port
 app.use('/api', listRoute)
   .use('/api', userRoute)
   .use('/api', todoRoute)
-  .use('/api', userActions)
-;
+  .use('/api', userActions);
 
 // START THE SERVER
 // =============================================================================
